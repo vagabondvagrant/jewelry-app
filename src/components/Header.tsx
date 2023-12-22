@@ -1,6 +1,7 @@
 
 import React from 'react';
 import User from '../SignUp/User';
+import SavedItems from '../SavedItems/SavedItems';
 // import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
@@ -18,6 +19,7 @@ const Header: React.FC = () => {
              </li>
              <div className='hover:bg-gray-400 rounded'>
             <User/>
+            <SavedItems/>
              </div>
           </ul>
         </nav>

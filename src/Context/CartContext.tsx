@@ -1,14 +1,41 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+// CartContext.tsx
+import React, { createContext, useContext, ReactNode, useState } from 'react';
 
-type CartContextType = {
-  cartItems: string[];
-  addToCart: (item: string) => void;
-  removeFromCart: (item: string) => void;
+export interface Item {
+  id: number;
+  name: string;
+  image: string; // Add the image property
+}
+
+interface CartContextProps {
+  items: Item[];
+  addToCart: (item: Item) => void;
+  removeFromCart: (itemId: number) => void;
+}
+
+export const CartContext = createContext<CartContextProps | undefined>(undefined);
+
+const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [items, setItems] = useState<Item[]>([]);
+
+  const addToCart = (item: Item) => {
+    setItems((prevItems) => [...prevItems, item]);
+  };
+
+  const removeFromCart = (itemId: number) => {
+    setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+  };
+
+  const contextValue: CartContextProps = {
+    items,
+    addToCart,
+    removeFromCart,
+  };
+
+  return <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>;
 };
 
-const CartContext = createContext<CartContextType | undefined>(undefined);
-
-export const useCart = () => {
+const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {
     throw new Error('useCart must be used within a CartProvider');
@@ -16,22 +43,6 @@ export const useCart = () => {
   return context;
 };
 
-export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [cartItems, setCartItems] = useState<string[]>([]);
+export type { Item as CartItem }; // Use 'export type' for re-exporting the type
 
-  const addToCart = (item: string) => {
-    setCartItems((prevItems) => [...prevItems, item]);
-  };
-
-  const removeFromCart = (item: string) => {
-    setCartItems((prevItems) => prevItems.filter((i) => i !== item));
-  };
-
-  const value: CartContextType = {
-    cartItems,
-    addToCart,
-    removeFromCart,
-  };
-
-  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
-};
+export { CartProvider, useCart };
