@@ -21,10 +21,21 @@ const RecentlySold: React.FC = () => {
     { image: Sold14, offset: 0.4 },
   ];
 
+  const jewelryNames = [
+    'Elegant Diamond Necklace',
+    'Sapphire Dream Earrings',
+    'Golden Sunset Bracelet',
+    'Ruby Heart Pendant',
+    'Pearl Harmony Ring',
+    'Emerald Serenity Anklet',
+    'Amethyst Cascade Brooch',
+    'Opal Twilight Tiara',
+  ];
+
   const notifyBuy = (index: number) => {
-    toast.info(`Item ${index + 1} has been sold. You can't buy it right now.`, {
+    toast.info(`${jewelryNames[index]} has been sold. You can't buy it right now.`, {
       position: 'top-right',
-      autoClose: 3000, 
+      autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -33,8 +44,8 @@ const RecentlySold: React.FC = () => {
   };
 
   return (
-    <div className="recently-sold-container flex flex-col items-center justify-center">
-      <h2 className="text-4xl mb-8">Recently Sold Items</h2>
+    <div className="flex flex-col items-center justify-center mx-auto max-w-screen-lg p-4">
+      <h2 className="text-2xl sm:text-4xl mb-4 sm:mb-10">Recently Sold Items</h2>
 
       <Carousel
         showArrows={true}
@@ -47,10 +58,10 @@ const RecentlySold: React.FC = () => {
       >
         {recentlySoldItems.map((item, index) => (
           <div key={index} className="recently-sold-item flex flex-col items-center">
-            <img src={item.image} alt={`Item ${index + 1}`} />
-            <p className="text-white bg-gray-800 p-2 mt-2">{`Item ${index + 1}`}</p>
+            <img src={item.image} alt={`Item ${index + 1}`} className="max-w-full" />
+            <p className="text-white bg-customcolor p-2 mt-8 rounded-lg hover:bg-blue-500">{jewelryNames[index]}</p>
             <button
-              className="bg-blue-500 text-white p-2 mt-2 cursor-pointer"
+              className="bg-blue-700 text-white p-2 mt-4 cursor-pointer rounded-lg hover:bg-blue-500"
               onClick={() => notifyBuy(index)}
             >
               Buy Now
