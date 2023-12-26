@@ -16,6 +16,7 @@ export default {
         customcolor4: '#bff542', // Added customcolor2 here
         customcolor5: '#7b9129', // Added customcolor2 here
         customcolor6: '#994D1C', // Added customcolor2 here
+        customcolor7: '#5C4033', // Added customcolor2 here
       },
       buttoncolor: "#18546e"
     },

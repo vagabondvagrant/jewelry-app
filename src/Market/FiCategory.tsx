@@ -26,7 +26,15 @@ const FiCategory: React.FC = () => {
 
   const handleAddToCart = (item: Item) => {
     addToCart(item as CartItem);
-    toast.success(`${item.name} added to cart!`);
+    toast.success(`${item.name} added to cart!`, {
+      position: "bottom-right",
+      autoClose: 3000, // Auto close the notification after 3000ms (3 seconds)
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   return (

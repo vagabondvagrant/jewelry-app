@@ -1,10 +1,9 @@
-// CartContext.tsx
 import React, { createContext, useContext, ReactNode, useState } from 'react';
 
 export interface Item {
   id: number;
   name: string;
-  image: string; // Add the image property
+  image: string; 
 }
 
 interface CartContextProps {
@@ -43,6 +42,6 @@ const useCart = () => {
   return context;
 };
 
-export type { Item as CartItem }; // Use 'export type' for re-exporting the type
+export type { Item as CartItem }; 
 
 export { CartProvider, useCart };
