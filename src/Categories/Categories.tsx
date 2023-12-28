@@ -5,6 +5,7 @@ import Gold from './Gold';
 import Bangles from './Bangles';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import FooterC from './FooterC';
+import SavedItems from '../SavedItems/SavedItems';
 
 type CategoriesProps = {};
 
@@ -41,7 +42,7 @@ const Categories: React.FC<CategoriesProps> = () => {
 
   return (
     <animated.div style={fadeIn} className="py-8 px-4 md:px-8 lg:px-16 xl:px-32">
-      <h1 className="flex justify-center text-3xl mb-20 font-bold hover:bg-gray-200 hover:rounded hover:text-customcolor">
+      <h1 className="flex justify-center text-[1.5rem] md:text-3xl mb-20 font-bold hover:bg-gray-200 hover:rounded hover:text-customcolor">
         Jewelry Categories
       </h1>
 
@@ -83,6 +84,7 @@ const Categories: React.FC<CategoriesProps> = () => {
       </div>
 
       <FooterC />
+      <SavedItems/>
     </animated.div>
   );
 };
