@@ -6,10 +6,11 @@ interface AnimatedScrollComponentProps {
   image: string;
   description: string;
   price: number;
-  name:string
+  name: string;
+  onClick: () => void;
 }
 
-const AnimatedScrollComponent: React.FC<AnimatedScrollComponentProps> = ({ image, description, price }) => {
+const AnimatedScrollComponent: React.FC<AnimatedScrollComponentProps> = ({ image, description, price, name, onClick }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -41,19 +42,23 @@ const AnimatedScrollComponent: React.FC<AnimatedScrollComponentProps> = ({ image
       controls.start('hidden');
     }
   }, [controls, inView]);
-  
+
   return (
     <motion.div
-    ref={ref}
-    initial="hidden"
-    animate={controls}
+      ref={ref}
+      initial="hidden"
+      animate={controls}
       variants={variants}
       transition={{ duration: 1, ease: 'easeInOut' }}
       className="mt-6"
     >
       {image && <img src={image} alt="Jewelry" className="w-full h-auto" />}
+      {name && <p className="text-xl font-bold">{name}</p>}
       {description && <p>{description}</p>}
       {price && <p>Price: ${price}</p>}
+      <button className="bg-blue-700 hover:bg-blue-500 rounded-[15px] text-white p-2 md:rounded-[25px] mt-1 mb-2 md:mt-3" onClick={onClick}>
+        Add to Cart
+      </button>
     </motion.div>
   );
 };

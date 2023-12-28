@@ -5,7 +5,7 @@ import SavedItems from '../SavedItems/SavedItems';
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-customcolor7 p-[30px] text-white opacity-90 text-xl">
+    <header className="bg-customcolor7 p-[30px]  text-white opacity-90 text-xl">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="text-2xl font-bold text-white">
           Antique Jewels

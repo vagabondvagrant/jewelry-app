@@ -12,7 +12,7 @@ const Footer = () => {
   const randomBackground = jewelryBackgrounds[Math.floor(Math.random() * jewelryBackgrounds.length)];
 
   return (
-    <footer className="py-40 flex flex-col items-center" style={{ background: randomBackground, backgroundSize: 'cover' }}>
+    <footer className="py-40 flex flex-col items-center " style={{ background: randomBackground, backgroundSize: 'cover' }}>
       <div className="container mx-auto flex flex-col items-center justify-between text-white w-full h-full">
         <div className="flex space-x-4 mb-4 text-3xl mt-[200px]">
           <SocialIcons/>

@@ -112,6 +112,7 @@ function App() {
               <Route path="/sold" element={<RecentlySold />} />
               <Route path="/about" element={<AboutUs />} />
               <Route path="/market" element={<FiCategory />} />
+              <Route path="/expensive" element={<JewelryScroll/>}/>
             </Routes>
           )}
 
@@ -120,10 +121,10 @@ function App() {
               <Header />
               <Home />
               <JewelryCatalog />
-              <WhatPeopleSay/>
               <div className="bg-gray-500 opacity-100 text-white">
                 <Footer />
                 <JewelryScroll/>
+              <WhatPeopleSay/>
                 <GoToTopButton />
                 <GoDownButton />
                 <WhatsappContact />

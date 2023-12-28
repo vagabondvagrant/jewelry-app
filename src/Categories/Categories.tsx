@@ -41,7 +41,7 @@ const Categories: React.FC<CategoriesProps> = () => {
 
   return (
     <animated.div style={fadeIn} className="py-8 px-4 md:px-8 lg:px-16 xl:px-32">
-      <h1 className="flex justify-center text-3xl mb-20 font-bold hover:bg-yellow-900 hover:rounded hover:text-white">
+      <h1 className="flex justify-center text-3xl mb-20 font-bold hover:bg-gray-200 hover:rounded hover:text-customcolor">
         Jewelry Categories
       </h1>
 
