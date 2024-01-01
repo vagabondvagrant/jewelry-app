@@ -89,6 +89,7 @@ import SavedItems from './SavedItems/SavedItems';
 import AboutUs from './components/About';
 import WhatPeopleSay from './Audience/WhatPeopleSay';
 import JewelryScroll from './FramerMotion/JewelryScroll';
+import { ContactUs } from './Email/SendMail';
 
 
 function App() {
@@ -124,6 +125,7 @@ function App() {
               <div className="bg-gray-500 opacity-100 text-white">
                 <Footer />
                 <JewelryScroll/>
+                <ContactUs/>
               <WhatPeopleSay/>
                 <GoToTopButton />
                 <GoDownButton />
