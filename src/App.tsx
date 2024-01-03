@@ -84,7 +84,7 @@ import GoDownButton from './TopBottom/Bottom';
 import WhatsappContact from './Whatsapp/Whatsapp';
 import JewelryCatalog from './components/JewelryCatalog';
 import { CartProvider } from './Context/CartContext';
-import FiCategory from './Market/FiCategory';
+// import FiCategory from './Market/FiCategory';
 import SavedItems from './SavedItems/SavedItems';
 import AboutUs from './components/About';
 import WhatPeopleSay from './Audience/WhatPeopleSay';
@@ -129,7 +129,7 @@ function App() {
           <Route path="/saved" element={<SavedItems />} />
           <Route path="/sold" element={<RecentlySold />} />
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/market" element={<FiCategory />} />
+          {/* <Route path="/market" element={<FiCategory />} /> */}
           <Route path="/expensive" element={<JewelryScroll />} />
         </Routes>
       </Router>
