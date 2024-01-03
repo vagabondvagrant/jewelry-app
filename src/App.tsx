@@ -82,7 +82,7 @@ import Footer from './components/Footer';
 import GoToTopButton from './TopBottom/GoToTop';
 import GoDownButton from './TopBottom/Bottom';
 import WhatsappContact from './Whatsapp/Whatsapp';
-import  JewelryCatalog  from './components/JewelryCatalog';
+import JewelryCatalog from './components/JewelryCatalog';
 import { CartProvider } from './Context/CartContext';
 import FiCategory from './Market/FiCategory';
 import SavedItems from './SavedItems/SavedItems';
@@ -91,7 +91,6 @@ import WhatPeopleSay from './Audience/WhatPeopleSay';
 import JewelryScroll from './FramerMotion/JewelryScroll';
 import { ContactUs } from './Email/SendMail';
 
-
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -99,41 +98,40 @@ function App() {
     setIsLoggedIn(true);
   };
 
-
   return (
     <CartProvider>
       <Router>
-        <>
-          {!isLoggedIn && (
-            <Routes>
-              <Route path="/" element={<SignUpForm onLogin={handleLogin} />} />
-              <Route path="/categories" element={<Categories />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/saved" element={<SavedItems />} />
-              <Route path="/sold" element={<RecentlySold />} />
-              <Route path="/about" element={<AboutUs />} />
-              <Route path="/market" element={<FiCategory />} />
-              <Route path="/expensive" element={<JewelryScroll/>}/>
-            </Routes>
-          )}
-
-          {isLoggedIn && (
-            <>
-              <Header />
-              <Home />
-              <JewelryCatalog />
-              <div className="bg-gray-500 opacity-100 text-white">
-                <Footer />
-                <JewelryScroll/>
-                <ContactUs/>
-              <WhatPeopleSay/>
-                <GoToTopButton />
-                <GoDownButton />
-                <WhatsappContact />
-              </div>
-            </>
-          )}
-        </>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              isLoggedIn ? (
+                <>
+                  <Header />
+                  <Home />
+                  <JewelryCatalog />
+                  <div className="bg-gray-500 opacity-100 text-white">
+                    <Footer />
+                    <JewelryScroll />
+                    <ContactUs />
+                    <WhatPeopleSay />
+                    <GoToTopButton />
+                    <GoDownButton />
+                    <WhatsappContact />
+                  </div>
+                </>
+              ) : (
+                <SignUpForm onLogin={handleLogin} />
+              )
+            }
+          />
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/saved" element={<SavedItems />} />
+          <Route path="/sold" element={<RecentlySold />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/market" element={<FiCategory />} />
+          <Route path="/expensive" element={<JewelryScroll />} />
+        </Routes>
       </Router>
     </CartProvider>
   );
