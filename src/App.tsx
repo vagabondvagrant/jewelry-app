@@ -88,7 +88,7 @@ import { CartProvider } from './Context/CartContext';
 import SavedItems from './SavedItems/SavedItems';
 import AboutUs from './components/About';
 import WhatPeopleSay from './Audience/WhatPeopleSay';
-import JewelryScroll from './FramerMotion/JewelryScroll';
+// import JewelryScroll from './FramerMotion/JewelryScroll';
 import { ContactUs } from './Email/SendMail';
 
 function App() {
@@ -112,7 +112,7 @@ function App() {
                   <JewelryCatalog />
                   <div className="bg-gray-500 opacity-100 text-white">
                     <Footer />
-                    <JewelryScroll />
+                    {/* <JewelryScroll /> */}
                     <ContactUs />
                     <WhatPeopleSay />
                     <GoToTopButton />
@@ -130,7 +130,7 @@ function App() {
           <Route path="/sold" element={<RecentlySold />} />
           <Route path="/about" element={<AboutUs />} />
           {/* <Route path="/market" element={<FiCategory />} /> */}
-          <Route path="/expensive" element={<JewelryScroll />} />
+          {/* <Route path="/expensive" element={<JewelryScroll />} /> */}
         </Routes>
       </Router>
     </CartProvider>
